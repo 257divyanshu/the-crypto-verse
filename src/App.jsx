@@ -7,7 +7,7 @@ function App() {
     <>
       <Navbar/>
       <Banner/>
-      <CoinTable />
+      <CoinTable currency='usd'/>
     </>
   )   
 }
