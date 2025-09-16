@@ -1,19 +1,10 @@
-import { useState } from "react";
 import Home from "./pages/Home";
-import { CurrencyContext } from "./context/CurrencyContext";
 
 function App() {
-
-  let [currency, setCurrency] = useState('inr');
-
   return (
     <>
-      <CurrencyContext.Provider
-        value={{currency, setCurrency}}
-      >
-        <Home/>
-      </CurrencyContext.Provider>
+      <Home />
     </>
-  )   
+  )
 }
 export default App;
