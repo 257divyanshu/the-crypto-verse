@@ -72,7 +72,7 @@ function CoinTable() {
                                 <div className="flex items-center justify-start gap-3 basis-[35%]">
 
                                     <div className="w-[5rem] h-[5rem]">
-                                        <img src={coin.image} className="w-full h-full" />
+                                        <img loading="lazy" src={coin.image} className="w-full h-full" />
                                     </div>
 
                                     <div className="flex flex-col">
