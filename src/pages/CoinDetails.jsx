@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCoinDetails } from "../services/fetchCoinDetails";
 import { useEffect } from "react";
 import parse from "html-react-parser";
+import PageLoader from "../components/PageLoader/PageLoader";
 
 function CoinDetails(){
 
@@ -27,9 +28,7 @@ function CoinDetails(){
 
     if(isLoading){
         return (
-            <div>
-                loading coin details for coin ID {coinId}
-            </div>
+            <PageLoader/>
         )
     };
 
