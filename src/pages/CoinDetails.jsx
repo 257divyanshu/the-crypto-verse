@@ -1,27 +1,12 @@
-import { useParams } from "react-router-dom";
-import useCurrencyStore from "../stores/useCurrencyStore";
-import { useQuery } from "@tanstack/react-query";
-import { fetchCoinDetails } from "../services/fetchCoinDetails";
 import { useEffect } from "react";
 import parse from "html-react-parser";
 import PageLoader from "../components/PageLoader/PageLoader";
 import CoinInfoContainer from "../components/CoinInfo/CoinInfoContainer";
+import { useFetchCoinDetails } from "../hooks/useFetchCoinDetails";
 
 function CoinDetails(){
 
-    const {coinId} = useParams();
-
-    const {currency} = useCurrencyStore();
-
-    const {data: coin, isLoading, isError, error} = useQuery({
-        queryKey: ['coins', coinId],
-        queryFn: () => fetchCoinDetails(coinId),
-        retry: 2,
-        retryDelay: 1000,
-        gcTime: 1000 * 60 * 2,
-        staleTime: 1000 * 60 * 2,
-        refetchOnWindowFocus: false,
-    });
+    const [coinId, coin, isLoading, isError, error, currency] = useFetchCoinDetails();
 
     useEffect(()=>{
         console.log(coin);
