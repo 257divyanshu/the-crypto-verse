@@ -52,7 +52,7 @@ function CoinTable() {
                         Price
                     </div>
                     <div className="basis-[20%]">
-                        24h change
+                        Change
                     </div>
                     <div className="basis-[20%]">
                         Market Cap
@@ -86,8 +86,8 @@ function CoinTable() {
                                     {coin.current_price}
                                 </div>
 
-                                <div className="basis-[20%]">
-                                    {coin.price_change_24h}
+                                <div className={`basis-[20%] ${coin.price_change_percentage_24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                                    {coin.price_change_percentage_24h}
                                 </div>
 
                                 <div className="basis-[20%]">
