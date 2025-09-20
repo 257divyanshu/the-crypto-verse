@@ -3,6 +3,8 @@ import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "@tanstack/react-query";
 import useCurrencyStore from "../../stores/useCurrencyStore";
 import { useNavigate } from "react-router-dom";
+import formatToCompactNumber from "../../helpers/formatToCompactNumber";
+import { getCurrencySymbol } from "../../helpers/getCurrencySymbol";
 
 function CoinTable() {
 
@@ -87,11 +89,11 @@ function CoinTable() {
                                 </div>
 
                                 <div className={`basis-[20%] ${coin.price_change_percentage_24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                                    {coin.price_change_percentage_24h}
+                                    {coin.price_change_percentage_24h}%
                                 </div>
 
                                 <div className="basis-[20%]">
-                                    {coin.market_cap}
+                                    {getCurrencySymbol(currency)}{formatToCompactNumber(coin.market_cap)}
                                 </div>
 
                             </div>
