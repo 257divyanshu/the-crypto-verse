@@ -5,6 +5,7 @@ import useCurrencyStore from "../../stores/useCurrencyStore";
 import { useNavigate } from "react-router-dom";
 import formatToCompactNumber from "../../helpers/formatToCompactNumber";
 import { getCurrencySymbol } from "../../helpers/getCurrencySymbol";
+import formatToTwoDecimals from "../../helpers/formatToTwoDecimals";
 
 function CoinTable() {
 
@@ -54,7 +55,7 @@ function CoinTable() {
                         Price
                     </div>
                     <div className="basis-[20%]">
-                        Change
+                        24h Change
                     </div>
                     <div className="basis-[20%]">
                         Market Cap
@@ -89,7 +90,11 @@ function CoinTable() {
                                 </div>
 
                                 <div className={`basis-[20%] ${coin.price_change_percentage_24h >= 0 ? 'text-green-500' : 'text-red-500'}`}>
-                                    {coin.price_change_percentage_24h}%
+                                    <span className="mr-1">
+                                        {coin.price_change_percentage_24h >= 0 ? '▲' : '▼'}
+                                    </span>
+                                    {/* Use Math.abs() to remove the negative sign */}
+                                    {formatToTwoDecimals(Math.abs(coin.price_change_percentage_24h))}%
                                 </div>
 
                                 <div className="basis-[20%]">
