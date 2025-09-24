@@ -30,8 +30,8 @@ function CoinInfo({historicData, setDays, setDataInterval, days, currency}){
     };
 
     return (
-        <div className=" flex flex-col items-center justify-center mt-6 p-4 w-full">
-            <div className=" h-[500px] w-4/5">
+        <div className=" flex flex-col items-center justify-center w-full border-2 border-white p-2">
+            <div className=" h-[300px]">
                 <Line className=""
                     data={{
                         labels: historicData.data.prices.map((coinPrice) => {
